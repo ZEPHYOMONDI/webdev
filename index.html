@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Blog – Your Trusted News Source</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     STICKY NAVIGATION / HEADER
+============================================================ -->
+<header id="main-header" class="sticky-top">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid px-3 px-lg-5">
+
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <img src="images/backgroundimage.jpeg" alt="Joseph Blog Logo" class="logo-img" />
+        <span class="logo-text">Joseph<span class="logo-accent">Blog</span></span>
+      </a>
+
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navMenu" aria-controls="navMenu"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links + search + login -->
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#trending">Trending</a></li>
+          <li class="nav-item"><a class="nav-link" href="#breaking">Breaking News</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Search -->
+        <div class="search-wrap me-3">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search news…" />
+          <button class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+        </div>
+
+        <!-- Login -->
+        <a href="#" class="btn btn-login"><i class="fas fa-user me-1"></i>Login</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================================================
+     BREAKING NEWS TICKER
+============================================================ -->
+<section id="breaking" class="breaking-bar">
+  <div class="d-flex align-items-center h-100">
+    <span class="breaking-label">
+      <i class="fas fa-bolt me-1"></i>BREAKING
+      <span class="live-badge ms-2">LIVE</span>
+    </span>
+    <div class="ticker-wrap">
+      <div class="ticker-track" id="tickerTrack">
+        <span class="ticker-item"><i class="far fa-clock me-1"></i>12:45 PM &mdash; Global climate summit reaches historic carbon agreement &nbsp;&nbsp;&nbsp;</span>
+        <span class="ticker-item"><i class="far fa-clock me-1"></i>11:30 AM &mdash; Tech giant unveils next-generation AI chip that outperforms all rivals &nbsp;&nbsp;&nbsp;</span>
+        <span class="ticker-item"><i class="far fa-clock me-1"></i>10:15 AM &mdash; World Cup qualifier: National team secures spot in final round &nbsp;&nbsp;&nbsp;</span>
+        <span class="ticker-item"><i class="far fa-clock me-1"></i>09:00 AM &mdash; Central bank raises interest rates by 25 basis points amid inflation concerns &nbsp;&nbsp;&nbsp;</span>
+        <span class="ticker-item"><i class="far fa-clock me-1"></i>08:20 AM &mdash; Space agency announces crewed lunar mission for 2027 &nbsp;&nbsp;&nbsp;</span>
+        <span class="ticker-item"><i class="far fa-clock me-1"></i>07:45 AM &mdash; Health ministry confirms new vaccine achieves 98% efficacy in trials &nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAIN LAYOUT  (sidebar + content)
+============================================================ -->
+<div class="container-fluid px-3 px-lg-5 main-layout">
+  <div class="row g-4">
+
+    <!-- ====================================================
+         LEFT SIDEBAR
+    ==================================================== -->
+    <aside class="col-12 col-lg-3 col-xl-2 sidebar-left">
+      <div class="row-sidebar-inner">
+
+      <!-- Profile circle -->
+      <div class="profile-card fade-in">
+        <div class="profile-img-wrap">
+          <img src="images/backgroundimage.jpeg" alt="Profile" class="profile-img" id="profileImg" />
+          <label class="upload-overlay" for="imgUpload" title="Upload photo">
+            <i class="fas fa-camera"></i>
+          </label>
+          <input type="file" id="imgUpload" accept="image/*" class="d-none" />
+        </div>
+
+        <!-- Welcome text -->
+        <div class="welcome-body text-center mt-3">
+          <h5 class="welcome-title">WELCOME TO<br /><span>JOSEPH BLOG</span></h5>
+          <p class="welcome-text">
+            Stay informed with trusted news, trending stories, community discussions, and inspiring photo updates from around the world.
+          </p>
+          <div class="d-flex gap-2 justify-content-center flex-wrap mt-3">
+            <a href="#latest" class="btn btn-sm btn-primary-custom">Read More</a>
+            <a href="#trending" class="btn btn-sm btn-outline-custom">Explore News</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular Stories -->
+      <div class="popular-card fade-in">
+        <h6 class="section-label"><i class="fas fa-fire me-2 text-danger"></i>Top Stories</h6>
+        <ol class="popular-list" id="popularList">
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>Global leaders meet to discuss AI governance framework</p>
+              <span><i class="fas fa-eye me-1"></i>124,500 views</span>
+            </div>
+          </li>
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>Renewable energy surpasses fossil fuels for first time</p>
+              <span><i class="fas fa-eye me-1"></i>98,300 views</span>
+            </div>
+          </li>
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>Championship final breaks global viewership record</p>
+              <span><i class="fas fa-eye me-1"></i>87,100 views</span>
+            </div>
+          </li>
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>Breakthrough cancer treatment enters final clinical phase</p>
+              <span><i class="fas fa-eye me-1"></i>76,800 views</span>
+            </div>
+          </li>
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>New economic corridor set to transform regional trade</p>
+              <span><i class="fas fa-eye me-1"></i>65,200 views</span>
+            </div>
+          </li>
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>Tech start-up raises record $5B Series C funding</p>
+              <span><i class="fas fa-eye me-1"></i>54,900 views</span>
+            </div>
+          </li>
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>Historic peace deal signed after decade-long conflict</p>
+              <span><i class="fas fa-eye me-1"></i>48,600 views</span>
+            </div>
+          </li>
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>Scientists discover water on Mars moon Phobos</p>
+              <span><i class="fas fa-eye me-1"></i>43,200 views</span>
+            </div>
+          </li>
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>Award-winning film sweeps five categories at ceremony</p>
+              <span><i class="fas fa-eye me-1"></i>38,700 views</span>
+            </div>
+          </li>
+          <li class="popular-item">
+            <img src="images/backgroundimage.jpeg" alt="Story" />
+            <div>
+              <p>Education reform bill passes with overwhelming support</p>
+              <span><i class="fas fa-eye me-1"></i>31,400 views</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+    </div><!-- /row-sidebar-inner -->
+    </aside><!-- /sidebar-left -->
+
+    <!-- ====================================================
+         MAIN CONTENT COLUMN
+    ==================================================== -->
+    <main class="col-12 col-lg-9 col-xl-10">
+
+      <!-- ================================================
+           HERO SECTION
+      ================================================ -->
+      <section class="hero fade-in" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <span class="hero-badge"><i class="fas fa-bolt me-1"></i>Trusted News</span>
+          <h1 class="hero-headline">Your Trusted Source for<br />News and Stories</h1>
+          <p class="hero-sub">
+            Breaking news, trending topics, politics, sports, business, technology,<br class="d-none d-md-block" />
+            entertainment, education, and lifestyle — all in one place.
+          </p>
+          <div class="hero-btns d-flex gap-3 flex-wrap justify-content-center">
+            <a href="#latest" class="btn btn-hero-primary"><i class="fas fa-newspaper me-2"></i>Latest News</a>
+            <a href="#community" class="btn btn-hero-outline"><i class="fas fa-users me-2"></i>Join Community</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================
+           NEWS CATEGORIES
+      ================================================ -->
+      <section class="section-block fade-in" id="categories">
+        <h2 class="section-title"><span>News</span> Categories</h2>
+        <div class="row g-3" id="categoriesGrid">
+          <!-- JS will fill or these static cards suffice -->
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#e63946">
+              <i class="fas fa-landmark"></i><span>Politics</span>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#2a9d8f">
+              <i class="fas fa-chart-line"></i><span>Business</span>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#f4a261">
+              <i class="fas fa-futbol"></i><span>Sports</span>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#457b9d">
+              <i class="fas fa-microchip"></i><span>Technology</span>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#6d6875">
+              <i class="fas fa-graduation-cap"></i><span>Education</span>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#e9c46a">
+              <i class="fas fa-film"></i><span>Entertainment</span>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#06d6a0">
+              <i class="fas fa-heartbeat"></i><span>Health</span>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#fb5607">
+              <i class="fas fa-spa"></i><span>Lifestyle</span>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#3a0ca3">
+              <i class="fas fa-globe"></i><span>World News</span>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="cat-card" style="--cat-color:#0077b6">
+              <i class="fas fa-map-marker-alt"></i><span>Local News</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================
+           TRENDING NEWS
+      ================================================ -->
+      <section class="section-block fade-in" id="trending">
+        <h2 class="section-title"><span>Trending</span> News</h2>
+        <div class="row g-4" id="trendingGrid">
+
+          <div class="col-sm-6 col-xl-4">
+            <article class="news-card">
+              <div class="news-card-img-wrap">
+                <img src="images/backgroundimage.jpeg" alt="Politics" class="news-card-img" loading="lazy" />
+                <span class="card-category cat-politics">Politics</span>
+              </div>
+              <div class="news-card-body">
+                <h6 class="news-card-title">World Leaders Summit Ends With Landmark Climate Agreement</h6>
+                <p class="news-card-desc">Delegates from 190 nations signed a binding accord pledging net-zero emissions by 2045 following five days of intense negotiations.</p>
+                <div class="news-card-meta">
+                  <span><i class="far fa-calendar-alt me-1"></i>July 8, 2026</span>
+                  <a href="#" class="btn-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-sm-6 col-xl-4">
+            <article class="news-card">
+              <div class="news-card-img-wrap">
+                <img src="images/backgroundimage.jpeg" alt="Technology" class="news-card-img" loading="lazy" />
+                <span class="card-category cat-tech">Technology</span>
+              </div>
+              <div class="news-card-body">
+                <h6 class="news-card-title">AI Chip Breakthrough Promises 10× Speed Improvement</h6>
+                <p class="news-card-desc">A Silicon Valley firm revealed a processor architecture that reduces energy consumption while dramatically boosting inference throughput.</p>
+                <div class="news-card-meta">
+                  <span><i class="far fa-calendar-alt me-1"></i>July 7, 2026</span>
+                  <a href="#" class="btn-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-sm-6 col-xl-4">
+            <article class="news-card">
+              <div class="news-card-img-wrap">
+                <img src="images/backgroundimage.jpeg" alt="Sports" class="news-card-img" loading="lazy" />
+                <span class="card-category cat-sports">Sports</span>
+              </div>
+              <div class="news-card-body">
+                <h6 class="news-card-title">National Team Books Final Spot in World Cup Qualifier</h6>
+                <p class="news-card-desc">A dramatic stoppage-time goal secured qualification as thousands of fans flooded city streets in celebration across the country.</p>
+                <div class="news-card-meta">
+                  <span><i class="far fa-calendar-alt me-1"></i>July 6, 2026</span>
+                  <a href="#" class="btn-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-sm-6 col-xl-4">
+            <article class="news-card">
+              <div class="news-card-img-wrap">
+                <img src="images/backgroundimage.jpeg" alt="Business" class="news-card-img" loading="lazy" />
+                <span class="card-category cat-biz">Business</span>
+              </div>
+              <div class="news-card-body">
+                <h6 class="news-card-title">Central Bank Hike Signals Tighter Credit Conditions Ahead</h6>
+                <p class="news-card-desc">Analysts warn that the 25-basis-point increase will slow mortgage approvals and dampen consumer spending through year-end.</p>
+                <div class="news-card-meta">
+                  <span><i class="far fa-calendar-alt me-1"></i>July 5, 2026</span>
+                  <a href="#" class="btn-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-sm-6 col-xl-4">
+            <article class="news-card">
+              <div class="news-card-img-wrap">
+                <img src="images/backgroundimage.jpeg" alt="Health" class="news-card-img" loading="lazy" />
+                <span class="card-category cat-health">Health</span>
+              </div>
+              <div class="news-card-body">
+                <h6 class="news-card-title">New Vaccine Shows 98% Efficacy in Phase-3 Trials</h6>
+                <p class="news-card-desc">Researchers published peer-reviewed results confirming the vaccine's safety and broad protection against multiple variants.</p>
+                <div class="news-card-meta">
+                  <span><i class="far fa-calendar-alt me-1"></i>July 4, 2026</span>
+                  <a href="#" class="btn-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-sm-6 col-xl-4">
+            <article class="news-card">
+              <div class="news-card-img-wrap">
+                <img src="images/backgroundimage.jpeg" alt="Space" class="news-card-img" loading="lazy" />
+                <span class="card-category cat-world">World</span>
+              </div>
+              <div class="news-card-body">
+                <h6 class="news-card-title">Crewed Lunar Mission Confirmed for Late 2027 Launch</h6>
+                <p class="news-card-desc">The agency's administrator outlined the mission profile, noting advances in life-support systems will allow a 21-day lunar stay.</p>
+                <div class="news-card-meta">
+                  <span><i class="far fa-calendar-alt me-1"></i>July 3, 2026</span>
+                  <a href="#" class="btn-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================
+           LATEST NEWS
+      ================================================ -->
+      <section class="section-block fade-in" id="latest">
+        <h2 class="section-title"><span>Latest</span> News</h2>
+        <div class="row g-4">
+
+          <div class="col-md-6 col-xl-4">
+            <article class="latest-card">
+              <img src="images/backgroundimage.jpeg" alt="Latest 1" loading="lazy" />
+              <div class="latest-card-body">
+                <h6>Education Reform Bill Passes in Parliament With Strong Majority</h6>
+                <p>The sweeping legislation introduces new funding formulas, mandatory digital literacy curricula, and teacher salary increases.</p>
+                <div class="latest-meta">
+                  <span><i class="fas fa-user-pen me-1"></i>Joseph Adesanya</span>
+                  <span><i class="far fa-calendar me-1"></i>July 8, 2026</span>
+                </div>
+                <a href="#" class="btn btn-sm btn-primary-custom mt-3 d-inline-block">Read More</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <article class="latest-card">
+              <img src="images/backgroundimage.jpeg" alt="Latest 2" loading="lazy" />
+              <div class="latest-card-body">
+                <h6>Historic Peace Agreement Ends Decade-Long Regional Conflict</h6>
+                <p>Both sides agreed to a ceasefire, prisoner exchange, and a three-year roadmap for reconstruction and reconciliation talks.</p>
+                <div class="latest-meta">
+                  <span><i class="fas fa-user-pen me-1"></i>Mwachilimu </span>
+                  <span><i class="far fa-calendar me-1"></i>July 7, 2026</span>
+                </div>
+                <a href="#" class="btn btn-sm btn-primary-custom mt-3 d-inline-block">Read More</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <article class="latest-card">
+              <img src="images/backgroundimage.jpeg" alt="Latest 3" loading="lazy" />
+              <div class="latest-card-body">
+                <h6>Start-Up Secures Record $5 Billion Series C Funding Round</h6>
+                <p>The fintech company plans to use the capital to expand into 40 new markets and accelerate its AI-driven lending platform.</p>
+                <div class="latest-meta">
+                  <span><i class="fas fa-user-pen me-1"></i>Linda Mensah</span>
+                  <span><i class="far fa-calendar me-1"></i>July 6, 2026</span>
+                </div>
+                <a href="#" class="btn btn-sm btn-primary-custom mt-3 d-inline-block">Read More</a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================
+           VIDEO NEWS
+      ================================================ -->
+      <section class="section-block fade-in" id="videos">
+        <h2 class="section-title"><span>Video</span> News</h2>
+        <div class="row g-4">
+
+          <div class="col-sm-6 col-xl-4">
+            <div class="video-card">
+              <div class="video-thumb">
+                <img src="images/backgroundimage.jpeg" alt="Video 1" loading="lazy" />
+                <button class="play-btn" aria-label="Play video"><i class="fas fa-play"></i></button>
+              </div>
+              <div class="video-card-body">
+                <h6>Live Coverage: Climate Summit Closing Ceremony</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-4">
+            <div class="video-card">
+              <div class="video-thumb">
+                <img src="images/backgroundimage.jpeg" alt="Video 2" loading="lazy" />
+                <button class="play-btn" aria-label="Play video"><i class="fas fa-play"></i></button>
+              </div>
+              <div class="video-card-body">
+                <h6>Exclusive Interview: Meet the Scientist Behind the Vaccine</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-4">
+            <div class="video-card">
+              <div class="video-thumb">
+                <img src="images/backgroundimage.jpeg" alt="Video 3" loading="lazy" />
+                <button class="play-btn" aria-label="Play video"><i class="fas fa-play"></i></button>
+              </div>
+              <div class="video-card-body">
+                <h6>Match Highlights: National Team's Qualifying Victory</h6>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================
+           PHOTO GALLERY
+      ================================================ -->
+      <section class="section-block fade-in" id="gallery">
+        <h2 class="section-title"><span>Photo</span> Gallery</h2>
+        <div class="gallery-grid" id="galleryGrid">
+
+          <div class="gallery-item" style="--span:2">
+            <img src="images/backgroundimage.jpeg" alt="Gallery 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <p class="gallery-caption">World Summit 2026</p>
+              <span class="gallery-date"><i class="far fa-calendar me-1"></i>July 8, 2026</span>
+              <button class="btn-view-photo"><i class="fas fa-expand me-1"></i>View Photo</button>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/backgroundimage.jpeg" alt="Gallery 2" loading="lazy" />
+            <div class="gallery-overlay">
+              <p class="gallery-caption">Championship Finals</p>
+              <span class="gallery-date"><i class="far fa-calendar me-1"></i>July 6, 2026</span>
+              <button class="btn-view-photo"><i class="fas fa-expand me-1"></i>View Photo</button>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/backgroundimage.jpeg" alt="Gallery 3" loading="lazy" />
+            <div class="gallery-overlay">
+              <p class="gallery-caption">Tech Expo Demo Day</p>
+              <span class="gallery-date"><i class="far fa-calendar me-1"></i>July 5, 2026</span>
+              <button class="btn-view-photo"><i class="fas fa-expand me-1"></i>View Photo</button>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/backgroundimage.jpeg" alt="Gallery 4" loading="lazy" />
+            <div class="gallery-overlay">
+              <p class="gallery-caption">Harvest Festival 2026</p>
+              <span class="gallery-date"><i class="far fa-calendar me-1"></i>July 4, 2026</span>
+              <button class="btn-view-photo"><i class="fas fa-expand me-1"></i>View Photo</button>
+            </div>
+          </div>
+
+          <div class="gallery-item" style="--span:2">
+            <img src="images/backgroundimage.jpeg" alt="Gallery 5" loading="lazy" />
+            <div class="gallery-overlay">
+              <p class="gallery-caption">Lunar Mission Launch Day</p>
+              <span class="gallery-date"><i class="far fa-calendar me-1"></i>July 3, 2026</span>
+              <button class="btn-view-photo"><i class="fas fa-expand me-1"></i>View Photo</button>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/backgroundimage.jpeg" alt="Gallery 6" loading="lazy" />
+            <div class="gallery-overlay">
+              <p class="gallery-caption">Medical Research Lab</p>
+              <span class="gallery-date"><i class="far fa-calendar me-1"></i>July 2, 2026</span>
+              <button class="btn-view-photo"><i class="fas fa-expand me-1"></i>View Photo</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================
+           COMMUNITY COMMENTS
+      ================================================ -->
+      <section class="section-block fade-in" id="community">
+        <h2 class="section-title"><span>Community</span> Discussions</h2>
+        <div class="row g-4">
+
+          <!-- Comment Form -->
+          <div class="col-lg-5">
+            <div class="comment-form-card">
+              <h5><i class="fas fa-pen-to-square me-2 text-primary-custom"></i>Leave a Comment</h5>
+              <form id="commentForm" novalidate>
+                <div class="mb-3">
+                  <label for="commentName" class="form-label">Your Name</label>
+                  <input type="text" id="commentName" class="form-control custom-input" placeholder="Enter your name" required />
+                </div>
+                <div class="mb-3">
+                  <label for="commentEmail" class="form-label">Email Address</label>
+                  <input type="email" id="commentEmail" class="form-control custom-input" placeholder="Enter your email" required />
+                </div>
+                <div class="mb-3">
+                  <label for="commentText" class="form-label">Comment</label>
+                  <textarea id="commentText" class="form-control custom-input" rows="4" placeholder="Share your thoughts…" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary-custom w-100">
+                  <i class="fas fa-paper-plane me-2"></i>Post Comment
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Comments Display -->
+          <div class="col-lg-7">
+            <div id="commentsContainer">
+
+              <div class="comment-card">
+                <img src="images/backgroundimage.jpeg" alt="JD" class="comment-avatar" />
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <span class="comment-name">James Onyango</span>
+                    <span class="comment-date"><i class="far fa-clock me-1"></i>July 8, 2026 · 10:24 AM</span>
+                  </div>
+                  <p class="comment-text">Excellent coverage on the climate summit! It's refreshing to see in-depth reporting that goes beyond the headlines and explains the real implications.</p>
+                  <div class="comment-actions">
+                    <button class="btn-like" onclick="likeComment(this)"><i class="fas fa-thumbs-up me-1"></i><span>24</span></button>
+                    <button class="btn-reply"><i class="fas fa-reply me-1"></i>Reply</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="comment-card">
+                <img src="images/backgroundimage.jpeg" alt="AO" class="comment-avatar" />
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <span class="comment-name">Peter Mwaniki</span>
+                    <span class="comment-date"><i class="far fa-clock me-1"></i>July 7, 2026 · 3:15 PM</span>
+                  </div>
+                  <p class="comment-text">The technology section keeps getting better! The AI chip story was particularly insightful. Would love to see a dedicated deep-dive series.</p>
+                  <div class="comment-actions">
+                    <button class="btn-like" onclick="likeComment(this)"><i class="fas fa-thumbs-up me-1"></i><span>18</span></button>
+                    <button class="btn-reply"><i class="fas fa-reply me-1"></i>Reply</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="comment-card">
+                <img src="images/backgroundimage.jpeg" alt="KA" class="comment-avatar" />
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <span class="comment-name">Waingo</span>
+                    <span class="comment-date"><i class="far fa-clock me-1"></i>July 6, 2026 · 9:05 AM</span>
+                  </div>
+                  <p class="comment-text">Proud supporter since day one. Joseph Blog continues to set the standard for balanced, fact-driven journalism. Keep up the great work!</p>
+                  <div class="comment-actions">
+                    <button class="btn-like" onclick="likeComment(this)"><i class="fas fa-thumbs-up me-1"></i><span>41</span></button>
+                    <button class="btn-reply"><i class="fas fa-reply me-1"></i>Reply</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    </main><!-- /main content column -->
+  </div><!-- /row -->
+</div><!-- /main-layout -->
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer id="contact">
+  <div class="container-fluid px-3 px-lg-5">
+    <div class="row g-5 footer-top">
+
+      <!-- Brand -->
+      <div class="col-md-6 col-lg-3">
+        <div class="footer-brand">
+          <a href="#" class="d-flex align-items-center gap-2 mb-3 text-decoration-none">
+            <img src="images/backgroundimage.jpeg" alt="Joseph Blog Logo" class="logo-img sm" />
+            <span class="logo-text">Joseph<span class="logo-accent">Blog</span></span>
+          </a>
+          <p>Your trusted source for balanced, timely, and insightful news from around the globe.</p>
+          <div class="social-icons mt-3">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-6 col-lg-2">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#trending">Trending</a></li>
+          <li><a href="#breaking">Breaking News</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#categories">Categories</a></li>
+        </ul>
+      </div>
+
+      <!-- Latest Posts -->
+      <div class="col-6 col-lg-3">
+        <h6 class="footer-heading">Latest Posts</h6>
+        <ul class="footer-posts">
+          <li>
+            <img src="images/backgroundimage.jpeg" alt="Post" />
+            <div>
+              <a href="#">Climate Summit Reaches Historic Agreement</a>
+              <span><i class="far fa-calendar me-1"></i>July 8, 2026</span>
+            </div>
+          </li>
+          <li>
+            <img src="images/backgroundimage.jpeg" alt="Post" />
+            <div>
+              <a href="#">AI Chip Breakthrough Stuns Industry</a>
+              <span><i class="far fa-calendar me-1"></i>July 7, 2026</span>
+            </div>
+          </li>
+          <li>
+            <img src="images/backgroundimage.jpeg" alt="Post" />
+            <div>
+              <a href="#">National Team Qualifies for World Cup</a>
+              <span><i class="far fa-calendar me-1"></i>July 6, 2026</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact + Newsletter -->
+      <div class="col-md-6 col-lg-4">
+        <h6 class="footer-heading">Contact Us</h6>
+        <ul class="footer-contact">
+          <li><i class="fas fa-map-marker-alt"></i>123 Nairobi, Kenya</li>
+          <li><i class="fas fa-phone"></i>+254 726 273051</li>
+          <li><i class="fas fa-envelope"></i>info@josephblog.com</li>
+        </ul>
+
+        <h6 class="footer-heading mt-4">Newsletter</h6>
+        <div class="input-group footer-newsletter">
+          <input type="email" class="form-control" placeholder="Your email…" />
+          <button class="btn btn-newsletter-sm" type="button"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+
+    </div><!-- /footer-top -->
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 <strong>Joseph Blog</strong>. All rights reserved. Designed with <i class="fas fa-heart text-danger mx-1"></i>for great journalism.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Advertise</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- Lightbox Modal -->
+<div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="fas fa-times"></i></button>
+  <img src="" alt="Gallery photo" class="lightbox-img" id="lightboxImg" />
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="script.js"></script>
+</body>
+</html>
